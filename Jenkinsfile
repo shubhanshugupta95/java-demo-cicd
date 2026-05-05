@@ -12,7 +12,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git 'https://github.com/shubhanshugupta95/java-demo-cicd.git'
+        echo "Using SCM checkout"
       }
     }
 
