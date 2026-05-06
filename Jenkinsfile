@@ -31,7 +31,7 @@ spec:
   }
 
   environment {
-    IMAGE_NAME = "shubhanshugupta95/java-demo-cicd"
+    IMAGE_NAME = "shubhanshugupta/java-demo-cicd"
   }
 
   stages {
