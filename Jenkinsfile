@@ -32,6 +32,7 @@ spec:
 
   environment {
     IMAGE_NAME = "shubhanshugupta/java-demo-cicd"
+    IMAGE_TAG = "${BUILD_NUMBER}"
   }
 
   stages {
@@ -46,7 +47,7 @@ spec:
     stage('Build Docker Image') {
       steps {
         container('docker') {
-          sh 'docker build -t $IMAGE_NAME:latest .'
+          sh 'docker build -t $IMAGE_NAME:$IMAGE_TAG .'
         }
       }
     }
@@ -61,7 +62,7 @@ spec:
           )]) {
             sh '''
               echo $PASS | docker login -u $USER --password-stdin
-              docker push $IMAGE_NAME:latest
+              docker push $IMAGE_NAME:$IMAGE_TAG
             '''
           }
         }
